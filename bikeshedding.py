@@ -72,11 +72,8 @@ def time_stats(df):
     popular_month_num = df['month'].mode()[0]
     popular_dow_num = df['day_of_week'].mode()[0]
     popular_hour = (df['Start Time'].dt.hour).mode()[0]
-    # TO DO: display the most common month
     print(f"Most popular month: {months[popular_month_num]}")
-    # TO DO: display the most common day of week
     print(f"Most popular day of week: {days[popular_dow_num + 1]}")
-    # TO DO: display the most common start hour
     print(f"Most popular start hour: {popular_hour}")
 
     print("\nThis took %s seconds." % (time.time() - start_time))
@@ -89,13 +86,10 @@ def station_stats(df):
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
 
-    # TO DO: display most commonly used start station
     popular_start = df['Start Station'].mode()[0]
     print(f"Most common start: {popular_start}")
-    # TO DO: display most commonly used end station
     popular_end = df['End Station'].mode()[0]
     print(f"Most common end: {popular_end}")
-    # TO DO: display most frequent combination of start station and end station trip
     popular_start_end = df[['Start Station', 'End Station']].mode()
     print(f"Most common start-end combination:\n{popular_start_end}")
 
@@ -109,10 +103,8 @@ def trip_duration_stats(df):
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
 
-    # TO DO: display total travel time
     total_travel_time = int(df['Trip Duration'].sum())
     print(f"Total travel time: {str(datetime.timedelta(seconds=total_travel_time))}")
-    # TO DO: display mean travel time
     mean_travel_time = int(df['Trip Duration'].mean())
     print(f"Mean travel time: {str(datetime.timedelta(seconds=mean_travel_time))}")
 
@@ -126,13 +118,10 @@ def user_stats(df):
     print('\nCalculating User Stats...\n')
     start_time = time.time()
 
-    # TO DO: Display counts of user types
     user_types = df['User Type'].value_counts()
     print(f"Counts of users:\n{user_types}")
-    # TO DO: Display counts of gender
     genders = df['Gender'].value_counts()
     print(f"Counts of genders:\n{genders}")
-    # TO DO: Display earliest, most recent, and most common year of birth
     earliest_birth_year = df['Birth Year'].min()
     latest_birth_year = df['Birth Year'].max()
     common_birth_year = df['Birth Year'].mode()[0]
